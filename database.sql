@@ -99,9 +99,10 @@ for all
 using (false)
 with check (false);
 
-insert into public.matches (stage, home_team, away_team, kickoff_at, locked_at)
-values
-  ('Grup', 'Turkiye', 'Brezilya', '2026-06-20 19:00:00+03', '2026-06-20 18:55:00+03'),
-  ('Grup', 'Arjantin', 'Fransa', '2026-06-21 22:00:00+03', '2026-06-21 21:55:00+03'),
-  ('Grup', 'Almanya', 'Ispanya', '2026-06-22 19:00:00+03', '2026-06-22 18:55:00+03')
-on conflict do nothing;
+delete from public.matches
+where external_fixture_id is null
+  and (home_team, away_team, kickoff_at) in (
+    ('Turkiye', 'Brezilya', '2026-06-20 19:00:00+03'::timestamptz),
+    ('Arjantin', 'Fransa', '2026-06-21 22:00:00+03'::timestamptz),
+    ('Almanya', 'Ispanya', '2026-06-22 19:00:00+03'::timestamptz)
+  );

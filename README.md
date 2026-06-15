@@ -37,3 +37,11 @@ API_FOOTBALL_SEASON=2026
 - Mac kilitlenme saatinden sonra tahmin degistirilemez.
 - Tahminler herkese gorunur.
 - Admin sifresiyle mac eklenir, mac sonucu girilir veya API-Football'dan fikstur/skor senkronu yapilir.
+
+## Logo
+
+Resmi World Cup 26 logosunu kullanmak istersen `index.html` ile ayni dizine `world-cup-26-logo.png` adiyla koy. Sol ustteki marka alani bu dosyayi otomatik gosterir.
+
+## Ornek maclari temizleme
+
+Eski paketteki 3 adet sahte maci gormeye devam ediyorsan Supabase SQL Editor'de `cleanup-sample-matches.sql` dosyasini calistir veya guncel `database.sql` dosyasini tekrar calistir.

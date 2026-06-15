@@ -53,7 +53,9 @@ module.exports = async function handler(req, res) {
 
     const body = await response.json();
 
-    if (!response.ok || body.errors?.length) {
+    const errors = body.errors && (Array.isArray(body.errors) ? body.errors.length : Object.keys(body.errors).length);
+
+    if (!response.ok || errors) {
       res.status(400).json({ message: JSON.stringify(body.errors || body) });
       return;
     }
